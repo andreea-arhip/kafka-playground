@@ -7,9 +7,11 @@ spring:
     consumer:
       group-id: clientService
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
       properties:
-        spring:
-          json:
-            trusted:
-              packages: org.example.application.event
+        schema:
+          registry:
+            url: http://localhost:8085
+        specific:
+          avro:
+            reader: true

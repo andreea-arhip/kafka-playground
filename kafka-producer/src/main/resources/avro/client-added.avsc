@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "ClientAddedEvent",
+  "namespace": "org.example.application",
+  "fields": [
+    { "name": "clientId", "type": "string" },
+    { "name": "email", "type": "string" },
+    { "name": "firstName", "type": "string" },
+    { "name": "lastName", "type": "string" }
+  ]
+}
