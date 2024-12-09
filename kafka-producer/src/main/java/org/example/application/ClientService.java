@@ -23,7 +23,7 @@ public class ClientService {
                 clientRequest.lastName()
                 );
         log.info("Sending event {}", clientAddedEvent.getClientId());
-        kafkaTemplate.send("client-added", clientAddedEvent);
+        kafkaTemplate.send("client-added-topic", clientAddedEvent);
         log.info("Successfully sent event {}", clientAddedEvent.getClientId());
     }
 }

@@ -3,13 +3,10 @@ server:
 
 spring:
   kafka:
-    bootstrap-servers: localhost:9092
-    template:
-      default-topic: client-added
     producer:
+      properties:
+        schema.registry.url: http://localhost:8085
+      bootstrap-servers: localhost:9092
+      group-id: client_group
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
-      properties:
-        schema:
-          registry:
-            url: http://localhost:8085

@@ -4,14 +4,9 @@ server:
 spring:
   kafka:
     bootstrap-servers: localhost:9092
+    application-id: client-streams-app
     consumer:
       group-id: clientService
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
-      properties:
-        schema:
-          registry:
-            url: http://localhost:8085
-        specific:
-          avro:
-            reader: true
+    properties:
+      schema.registry.url: http://localhost:8085
+      specific.avro.reader: true
